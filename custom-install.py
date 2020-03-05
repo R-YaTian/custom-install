@@ -18,7 +18,7 @@ import subprocess
 
 from pyctr.crypto import CryptoEngine, Keyslot
 from pyctr.types.cia import CIAReader, CIASection
-from pyctr.types.ncch import NCCHSection, NCCHReader
+from pyctr.types.ncch import NCCHSection
 from pyctr.util import roundup
 
 # used to run the save3ds_fuse binary next to the script
@@ -102,7 +102,7 @@ try:
         fname.append(cia_path + "\\" + filearray[i])
     print("%d CIAs" % len(filearray))
 except:
-    exit(f'错误: 该目录下没有CIA文件')
+    exit(f'Error: No CIA files')
 
 for c in fname:
     # parse the cia
