@@ -128,7 +128,7 @@ for time, c in enumerate(fname):
                 exit()
     tid_parts = (cia.tmd.title_id[0:8], cia.tmd.title_id[8:16])
     tid1 = cia.tmd.title_id[0:8]
-    if tid1 == '00048004' or tid1 == '00048015' or tid1 == '00048005'or tid1 == '0004800f':
+    if tid1 == '00048004' or tid1 == '00048015' or tid1 == '00048005' or tid1 == '0004800f':
         print('This is a DSiWare, no point to install it')
         dsiware += 1
         if time != len(fname) - 1:
