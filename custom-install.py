@@ -18,7 +18,7 @@ import subprocess
 
 from pyctr.crypto import CryptoEngine, Keyslot
 from pyctr.types.cia import CIAReader, CIASection
-from pyctr.types.ncch import NCCHSection
+from pyctr.types.ncch import NCCHSection, NCCHReader
 from pyctr.util import roundup
 
 # used to run the save3ds_fuse binary next to the script
@@ -49,11 +49,11 @@ def copy_with_progress(src: BinaryIO, dst: BinaryIO, size: int, path: str):
 
 
 parser = ArgumentParser(description='Manually install a CIA to the SD card for a Nintendo 3DS system.')
-parser.add_argument('cia', help='CIA files', nargs='+')
 parser.add_argument('-m', '--movable', help='movable.sed file', required=True)
 parser.add_argument('-b', '--boot9', help='boot9 file')
 parser.add_argument('--sd', help='path to SD root')
 parser.add_argument('--skip-contents', help="don't add contents, only add title info entry", action='store_true')
+parser.add_argument('-c', '--cias', help="CIA Files Path")
 
 args = parser.parse_args()
 
@@ -86,7 +86,25 @@ title_info_entries = {}
 # for use with a finalize program on the 3DS
 finalize_entries = []
 
-for c in args.cia:
+filearray = []
+fname = []
+cia_path = args.cias
+
+print('Add CIA files to list...')
+
+try:
+    flist = os.listdir(cia_path)
+    for fileNAME in flist:
+        if os.path.splitext(fileNAME)[1] == '.cia':
+            filearray.append(fileNAME )
+    ge = len(filearray)
+    for i in range(ge):
+        fname.append(cia_path + "\\" + filearray[i])
+    print("%d CIAs" % len(filearray))
+except:
+    exit(f'错误: 该目录下没有CIA文件')
+
+for c in fname:
     # parse the cia
     print('Reading CIA...')
     cia = CIAReader(c)
