@@ -15,6 +15,7 @@ from sys import exit, platform
 from tempfile import TemporaryDirectory
 from typing import BinaryIO
 import subprocess
+import shutil
 
 from pyctr.crypto import CryptoEngine, Keyslot
 from pyctr.types.cia import CIAReader, CIASection
@@ -89,6 +90,7 @@ finalize_entries = []
 filearray = []
 fname = []
 cia_path = args.cias
+dsiware = 0
 
 print('Add CIA files to list...')
 
@@ -100,16 +102,30 @@ try:
     ge = len(filearray)
     for i in range(ge):
         fname.append(cia_path + "\\" + filearray[i])
-    print("%d CIAs" % len(filearray))
+    if ge != 0:
+        print("%d CIAs" % len(filearray))
+    if ge == 0:
+        print("Error: No CIA files")
+        exit()
 except:
-    exit(f'Error: No CIA files')
+    exit(f'Error: Failed to add CIA files')
 
-for c in fname:
+for time, c in enumerate(fname):
     # parse the cia
     print('Reading CIA...')
     cia = CIAReader(c)
     tid_parts = (cia.tmd.title_id[0:8], cia.tmd.title_id[8:16])
-
+    tid1 = cia.tmd.title_id[0:8]
+    if tid1 == '00048004' or tid1 == '00048015':
+        print('This is a DSiWare, no point to install it')
+        dsiware += 1
+        if time != len(fname) - 1:
+            continue
+        else:
+            if ge > dsiware:
+                continue
+            else:
+                exit()
     try:
         print(f'Installing {cia.contents[0].exefs.icon.get_app_title().short_desc}...')
     except:
@@ -162,6 +178,8 @@ for c in fname:
     if is_dlc:
         # create the separate directories for every 256 contents
         for x in range(((len(cia.content_info) - 1) // 256) + 1):
+            if os.path.exists(join(content_root, f'{x:08x}')):
+                shutil.rmtree(join(content_root, f'{x:08x}'))
             makedirs(join(content_root, f'{x:08x}'))
 
     # maybe this will be changed in the future
