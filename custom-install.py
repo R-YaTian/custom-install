@@ -91,6 +91,7 @@ filearray = []
 fname = []
 cia_path = args.cias
 dsiware = 0
+firm = 0
 
 print('Add CIA files to list...')
 
@@ -113,16 +114,27 @@ except:
 for time, c in enumerate(fname):
     # parse the cia
     print('Reading CIA...')
-    cia = CIAReader(c)
+    try:
+        cia = CIAReader(c)
+    except:
+        print('The CIA file maybe a firm, you should install it via FBI or BigBlueMenu')
+        firm += 1
+        if time != len(fname) - 1:
+            continue
+        else:
+            if ge > (dsiware + firm):
+                continue
+            else:
+                exit()
     tid_parts = (cia.tmd.title_id[0:8], cia.tmd.title_id[8:16])
     tid1 = cia.tmd.title_id[0:8]
-    if tid1 == '00048004' or tid1 == '00048015':
+    if tid1 == '00048004' or tid1 == '00048015' or tid1 == '00048005'or tid1 == '0004800f':
         print('This is a DSiWare, no point to install it')
         dsiware += 1
         if time != len(fname) - 1:
             continue
         else:
-            if ge > dsiware:
+            if ge > (dsiware + firm):
                 continue
             else:
                 exit()
