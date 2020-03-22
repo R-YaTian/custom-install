@@ -117,7 +117,7 @@ for time, c in enumerate(fname):
     try:
         cia = CIAReader(c)
     except:
-        print('The CIA file maybe a firm, you should install it via FBI or BigBlueMenu')
+        print('The CIA file maybe a firm or systitle, you should install it via FBI or BigBlueMenu')
         firm += 1
         if time != len(fname) - 1:
             continue
@@ -128,8 +128,8 @@ for time, c in enumerate(fname):
                 exit()
     tid_parts = (cia.tmd.title_id[0:8], cia.tmd.title_id[8:16])
     tid1 = cia.tmd.title_id[0:8]
-    if tid1 == '00048004' or tid1 == '00048015' or tid1 == '00048005' or tid1 == '0004800f':
-        print('This is a DSiWare, no point to install it')
+    if tid1 == '00048004' or tid1 == '00048015' or tid1 == '00048005' or tid1 == '0004800f' or tid1 == '00040010' or tid1 == '0004001b' or tid1 == '00040030' or tid1 == '0004009b' or tid1 == '000400db':
+        print('This is a DSiWare or systitle, no point to install it, you should use FBI or BigBlueMenu')
         dsiware += 1
         if time != len(fname) - 1:
             continue
