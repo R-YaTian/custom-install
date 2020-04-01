@@ -151,6 +151,7 @@ int main(int argc, char* argv[])
 	puts("custom-install-finalize v1.0");
 
 	finalize_install();
+	remove(CIFINISH_PATH);
 	puts("\nPress START or B to exit.");
 
 	// Main loop
