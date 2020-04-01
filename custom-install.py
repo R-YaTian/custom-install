@@ -318,8 +318,6 @@ for time, c in enumerate(fname):
         b'\0' * 0x2c
     ]
 
-    print(title_info_entry_data)
-
     title_info_entries[cia.tmd.title_id] = b''.join(title_info_entry_data)
 
     with cia.open_raw_section(CIASection.Ticket) as t:
