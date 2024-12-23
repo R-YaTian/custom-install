@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-12-23 17:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp65001\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: E:/SrcPri/custom-install/ci-gui.py:90
+msgid "Waiting"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:91
+msgid "Starting"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:92
+msgid "Writing"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:93
+msgid "Finishing"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:94
+msgid "Done"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:95
+#: E:/SrcPri/custom-install/ci-gui.py:253
+msgid "Failed"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:156
+msgid "Failed to add titles"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:167
+msgid "Some titles couldn't be added."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:183
+#: E:/SrcPri/custom-install/ci-gui.py:462
+msgid "File path"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:185
+msgid "Reason"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:212
+msgid "Install results"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:224
+msgid ""
+"Some titles were installed, some failed. Please check the output for more details.\n"
+"The ones that were installed can be finished with custom-install-finalize."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:228
+msgid "All titles failed to install. Please check the output for more details."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:231
+msgid "All titles were installed."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:233
+msgid "Nothing was installed."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:236
+msgid ""
+"\n"
+"\n"
+"custom-install-finalize has been copied to the SD card."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:239
+msgid ""
+"installed applications were detected.\n"
+"The HOME Menu will only show 300 icons.\n"
+"Some applications (not updates or DLC) will need to be deleted."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:239
+#: E:/SrcPri/custom-install/ci-gui.py:608
+msgid "Warning"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:248
+msgid "Installed"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:304
+msgid "Select SD root (the directory or drive that contains \"Nintendo 3DS\")"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:311
+msgid ""
+"was corrupt!\n"
+"\n"
+"This could mean an issue with the SD card or the filesystem. Please check it for errors.\n"
+"It is also possible, though less likely, to be an issue with custom-install.\n"
+"\n"
+"Stopping now to prevent possible issues. If you want to try again, delete cifinish.bin from the SD card and re-run custom-install."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:329
+msgid "SD root"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:353
+msgid "Select "
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:390
+msgid "Select CIA files"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:403
+msgid "Add CIAs"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:407
+msgid "Select folder containing title contents in CDN format"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:413
+msgid "Couldn't add"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:417
+msgid ""
+"tmd file not found in the CDN directory:\n"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:419
+msgid "Add CDN title folder"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:423
+msgid "Select folder containing CIA files"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:437
+msgid "Add folder"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:444
+msgid "Remove selected"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:464
+msgid "Title ID"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:466
+msgid "Title name"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:468
+msgid "Status"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:485
+msgid "Skip contents (only add to title database)"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:490
+msgid "Overwrite existing saves"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:494
+msgid "Show console"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:497
+msgid "Start install"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:500
+msgid "Waiting..."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:543
+msgid "Please choose boot9 first"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:546
+msgid "File already in list"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:550
+msgid "Failed to read as a CIA or CDN title, probably corrupt"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:552
+msgid "Latest seeddb.bin is required, check the README for details"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:554
+msgid "Exception occurred"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:557
+msgid "DSiWare is not supported"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:561
+msgid "(No title)"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:577
+msgid "custom-install Console"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:605
+msgid "Error"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:611
+msgid "Info"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:632
+msgid "SD root is not specified."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:635
+msgid "movable.sed is not specified."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:639
+msgid ""
+"seeddb was not specified. Titles that require it will fail to install.\n"
+"Continue?"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:644
+msgid "There are no titles added to install."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:660
+msgid ""
+"was not found inside \"Nintendo 3DS\" on the SD card.\n"
+"\n"
+"Before using custom-install, you should use this SD card on the appropriate console.\n"
+"\n"
+"Otherwise, make sure the correct movable.sed is being used."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:694
+msgid "An error occurred during installation."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:712
+msgid ""
+"Not enough free space.\n"
+"Combined title install size"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:713
+msgid "Free space"
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:728
+msgid ""
+"An error occurred when trying to run save3ds_fuse.\n"
+"Either title.db doesn't exist, or save3ds_fuse couldn't be run."
+msgstr ""
+

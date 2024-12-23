@@ -1,0 +1,306 @@
+# custom install gui tranlations.
+# Copyright (C) 2019-2024 Ian Burgwin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.1\n"
+"POT-Creation-Date: 2024-12-23 17:40+0800\n"
+"PO-Revision-Date: 2024-12-23 18:00+0800\n"
+"Last-Translator: R-YaTian\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp65001\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: E:/SrcPri/custom-install/ci-gui.py:90
+msgid "Waiting"
+msgstr "等待中"
+
+#: E:/SrcPri/custom-install/ci-gui.py:91
+msgid "Starting"
+msgstr "启动中"
+
+#: E:/SrcPri/custom-install/ci-gui.py:92
+msgid "Writing"
+msgstr "写入中"
+
+#: E:/SrcPri/custom-install/ci-gui.py:93
+msgid "Finishing"
+msgstr "即将完成"
+
+#: E:/SrcPri/custom-install/ci-gui.py:94
+msgid "Done"
+msgstr "已完成"
+
+#: E:/SrcPri/custom-install/ci-gui.py:95
+#: E:/SrcPri/custom-install/ci-gui.py:253
+msgid "Failed"
+msgstr "失败"
+
+#: E:/SrcPri/custom-install/ci-gui.py:156
+msgid "Failed to add titles"
+msgstr "添加应用失败"
+
+#: E:/SrcPri/custom-install/ci-gui.py:167
+msgid "Some titles couldn't be added."
+msgstr "无法添加部分应用"
+
+#: E:/SrcPri/custom-install/ci-gui.py:183
+#: E:/SrcPri/custom-install/ci-gui.py:462
+msgid "File path"
+msgstr "文件路径"
+
+#: E:/SrcPri/custom-install/ci-gui.py:185
+msgid "Reason"
+msgstr "原因"
+
+#: E:/SrcPri/custom-install/ci-gui.py:212
+msgid "Install results"
+msgstr "安装结果"
+
+#: E:/SrcPri/custom-install/ci-gui.py:224
+msgid ""
+"Some titles were installed, some failed. Please check the output for more details.\n"
+"The ones that were installed can be finished with custom-install-finalize."
+msgstr ""
+"部分应用安装成功, 部分失败。请查看输出以获取更多信息。\n"
+"已成功安装的应用请使用 custom-install-finalize 组件完成安装。"
+
+#: E:/SrcPri/custom-install/ci-gui.py:228
+msgid "All titles failed to install. Please check the output for more details."
+msgstr "所有应用均安装失败, 请查看输出以获取更多信息"
+
+#: E:/SrcPri/custom-install/ci-gui.py:231
+msgid "All titles were installed."
+msgstr "所有应用均安装成功"
+
+#: E:/SrcPri/custom-install/ci-gui.py:233
+msgid "Nothing was installed."
+msgstr "无应用可安装"
+
+#: E:/SrcPri/custom-install/ci-gui.py:236
+msgid ""
+"\n"
+"\n"
+"custom-install-finalize has been copied to the SD card."
+msgstr ""
+"\n"
+"\n"
+"custom-install-finalize 组件已复制到 SD 卡上"
+
+#: E:/SrcPri/custom-install/ci-gui.py:239
+msgid ""
+"installed applications were detected.\n"
+"The HOME Menu will only show 300 icons.\n"
+"Some applications (not updates or DLC) will need to be deleted."
+msgstr ""
+"个已安装应用已被检测到。\n"
+"3DS的 HOME Menu 只能显示最多 300 个图标。\n"
+"需要删除部分应用 (非补丁或 DLC)"
+
+#: E:/SrcPri/custom-install/ci-gui.py:239
+#: E:/SrcPri/custom-install/ci-gui.py:608
+msgid "Warning"
+msgstr "警告"
+
+#: E:/SrcPri/custom-install/ci-gui.py:248
+msgid "Installed"
+msgstr "已安装"
+
+#: E:/SrcPri/custom-install/ci-gui.py:304
+msgid "Select SD root (the directory or drive that contains \"Nintendo 3DS\")"
+msgstr "选择 SD 卡根目录(包含 \"Nintendo 3DS\" 文件夹的驱动器)"
+
+#: E:/SrcPri/custom-install/ci-gui.py:311
+msgid ""
+"was corrupt!\n"
+"\n"
+"This could mean an issue with the SD card or the filesystem. Please check it for errors.\n"
+"It is also possible, though less likely, to be an issue with custom-install.\n"
+"\n"
+"Stopping now to prevent possible issues. If you want to try again, delete cifinish.bin from the SD card and re-run custom-install."
+msgstr ""
+"已损坏!\n"
+"\n"
+"这或许意味着 SD 卡或是其文件系统存在问题。请为其进行错误检测。\n"
+"此问题有概率是使用 custom-install 造成的, 但概率极小!\n"
+"\n"
+"现在停止操作以防止可能出现的问题。若你想要重试, 请先从 SD 卡中删除 cifinish.bin 文件并重启 custom-install"
+
+#: E:/SrcPri/custom-install/ci-gui.py:329
+msgid "SD root"
+msgstr "SD 卡根目录"
+
+#: E:/SrcPri/custom-install/ci-gui.py:353
+msgid "Select "
+msgstr "选择 "
+
+#: E:/SrcPri/custom-install/ci-gui.py:390
+msgid "Select CIA files"
+msgstr "选择 CIA 文件"
+
+#: E:/SrcPri/custom-install/ci-gui.py:403
+msgid "Add CIAs"
+msgstr "添加 CIAs"
+
+#: E:/SrcPri/custom-install/ci-gui.py:407
+msgid "Select folder containing title contents in CDN format"
+msgstr "请选择包含 CDN 格式应用的文件夹"
+
+#: E:/SrcPri/custom-install/ci-gui.py:413
+msgid "Couldn't add"
+msgstr "无法添加"
+
+#: E:/SrcPri/custom-install/ci-gui.py:417
+msgid ""
+"tmd file not found in the CDN directory:\n"
+msgstr ""
+"CDN 目录中未找到 tmd 文件:\n"
+
+#: E:/SrcPri/custom-install/ci-gui.py:419
+msgid "Add CDN title folder"
+msgstr "添加 CDN 应用目录"
+
+#: E:/SrcPri/custom-install/ci-gui.py:423
+msgid "Select folder containing CIA files"
+msgstr "选择包含 CIA 文件的文件夹"
+
+#: E:/SrcPri/custom-install/ci-gui.py:437
+msgid "Add folder"
+msgstr "添加文件夹"
+
+#: E:/SrcPri/custom-install/ci-gui.py:444
+msgid "Remove selected"
+msgstr "移除选中项"
+
+#: E:/SrcPri/custom-install/ci-gui.py:464
+msgid "Title ID"
+msgstr "应用 ID"
+
+#: E:/SrcPri/custom-install/ci-gui.py:466
+msgid "Title name"
+msgstr "应用名称"
+
+#: E:/SrcPri/custom-install/ci-gui.py:468
+msgid "Status"
+msgstr "状态"
+
+#: E:/SrcPri/custom-install/ci-gui.py:485
+msgid "Skip contents (only add to title database)"
+msgstr "跳过内容 (仅添加到应用数据库)"
+
+#: E:/SrcPri/custom-install/ci-gui.py:490
+msgid "Overwrite existing saves"
+msgstr "覆盖已存在的存档文件"
+
+#: E:/SrcPri/custom-install/ci-gui.py:494
+msgid "Show console"
+msgstr "显示控制台"
+
+#: E:/SrcPri/custom-install/ci-gui.py:497
+msgid "Start install"
+msgstr "开始安装"
+
+#: E:/SrcPri/custom-install/ci-gui.py:500
+msgid "Waiting..."
+msgstr "等待中..."
+
+#: E:/SrcPri/custom-install/ci-gui.py:543
+msgid "Please choose boot9 first"
+msgstr "请先选择 boot9 文件"
+
+#: E:/SrcPri/custom-install/ci-gui.py:546
+msgid "File already in list"
+msgstr "文件已存在于列表中"
+
+#: E:/SrcPri/custom-install/ci-gui.py:550
+msgid "Failed to read as a CIA or CDN title, probably corrupt"
+msgstr "无法识别为 CIA 或 CDN 应用, 可能已损坏"
+
+#: E:/SrcPri/custom-install/ci-gui.py:552
+msgid "Latest seeddb.bin is required, check the README for details"
+msgstr "需要最新版本的 seeddb.bin 数据库, 详情请查看 README 文件"
+
+#: E:/SrcPri/custom-install/ci-gui.py:554
+msgid "Exception occurred"
+msgstr "发生异常"
+
+#: E:/SrcPri/custom-install/ci-gui.py:557
+msgid "DSiWare is not supported"
+msgstr "不支持 DSiWare 应用"
+
+#: E:/SrcPri/custom-install/ci-gui.py:561
+msgid "(No title)"
+msgstr "(无应用)"
+
+#: E:/SrcPri/custom-install/ci-gui.py:577
+msgid "custom-install Console"
+msgstr "custom-install 控制台"
+
+#: E:/SrcPri/custom-install/ci-gui.py:605
+msgid "Error"
+msgstr "错误"
+
+#: E:/SrcPri/custom-install/ci-gui.py:611
+msgid "Info"
+msgstr "信息"
+
+#: E:/SrcPri/custom-install/ci-gui.py:632
+msgid "SD root is not specified."
+msgstr "SD 卡根目录未指定"
+
+#: E:/SrcPri/custom-install/ci-gui.py:635
+msgid "movable.sed is not specified."
+msgstr "未指定 movable.sed 文件"
+
+#: E:/SrcPri/custom-install/ci-gui.py:639
+msgid ""
+"seeddb was not specified. Titles that require it will fail to install.\n"
+"Continue?"
+msgstr ""
+"seeddb 数据库未指定, 需要它的应用将会安装失败。\n"
+"继续吗?"
+
+#: E:/SrcPri/custom-install/ci-gui.py:644
+msgid "There are no titles added to install."
+msgstr "列表中没有任何等待安装的应用"
+
+#: E:/SrcPri/custom-install/ci-gui.py:660
+msgid ""
+"was not found inside \"Nintendo 3DS\" on the SD card.\n"
+"\n"
+"Before using custom-install, you should use this SD card on the appropriate console.\n"
+"\n"
+"Otherwise, make sure the correct movable.sed is being used."
+msgstr ""
+"在 SD 卡根目录中没有找到 \"Nintendo 3DS\" 文件夹。\n"
+"\n"
+"在使用 custom-install 之前, 需要先在你的设备上使用这张 SD 卡。\n"
+"\n"
+"否则, 请确保使用的是对应设备的 movable.sed 文件。"
+
+#: E:/SrcPri/custom-install/ci-gui.py:694
+msgid "An error occurred during installation."
+msgstr "安装过程中发生错误"
+
+#: E:/SrcPri/custom-install/ci-gui.py:712
+msgid ""
+"Not enough free space.\n"
+"Combined title install size"
+msgstr ""
+"没有足够的可用空间\n"
+"安装应用所需空间合计"
+
+#: E:/SrcPri/custom-install/ci-gui.py:713
+msgid "Free space"
+msgstr "可用空间"
+
+#: E:/SrcPri/custom-install/ci-gui.py:728
+msgid ""
+"An error occurred when trying to run save3ds_fuse.\n"
+"Either title.db doesn't exist, or save3ds_fuse couldn't be run."
+msgstr ""
+"尝试执行 save3ds_fuse 命令时发生错误。\n"
+"可能是 title.db 数据库文件丢失, 也可能是 save3ds_fuse 组件无法运行。"
