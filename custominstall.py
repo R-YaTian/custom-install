@@ -11,13 +11,13 @@ from enum import Enum
 from glob import glob
 import gzip
 from os import makedirs, rename, scandir
-from os.path import dirname, join, isdir, isfile
+from os.path import dirname, join, isdir, isfile, abspath
 from random import randint
 from hashlib import sha256
 from pprint import pformat
 from shutil import copyfile, copy2, rmtree
 import sys
-from sys import platform, executable
+from sys import platform, executable, argv
 from tempfile import TemporaryDirectory
 from traceback import format_exception
 from typing import BinaryIO, TYPE_CHECKING
@@ -54,7 +54,7 @@ script_dir: str
 if frozen:
     script_dir = dirname(executable)
 else:
-    script_dir = dirname(__file__)
+    script_dir = dirname(abspath(argv[0]))
 
 # missing contents are replaced with 0xFFFFFFFF in the cmd file
 CMD_MISSING = b'\xff\xff\xff\xff'

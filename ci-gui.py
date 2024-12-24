@@ -44,16 +44,13 @@ if is_windows:
         tcl_path = join(tkinter_path, 'tcl8.6')
         environ['TCL_LIBRARY'] = 'lib/tkinter/tcl8.6'
     try:
-        import comtypes.client as cc
-
-        tbl = cc.GetModule('TaskbarLib.tlb')
-
-        taskbar = cc.CreateObject('{56FDF344-FD6D-11D0-958A-006097C9A090}', interface=tbl.ITaskbarList3)
-        taskbar.HrInit()
-    except (ModuleNotFoundError, UnicodeEncodeError, AttributeError):
+        import ctypes
+        taskbar = ctypes.CDLL('./TaskbarLib.dll')
+    except (ModuleNotFoundError, UnicodeEncodeError, AttributeError, OSError):
         pass
 
-file_parent = dirname(abspath(__file__))
+file_parent = dirname(abspath(sys.argv[0]))
+last_path = None
 
 # automatically load boot9 if it's in the current directory
 b9_paths.insert(0, join(file_parent, 'boot9.bin'))
@@ -288,7 +285,7 @@ class CustomInstallGUI(ttk.Frame):
             # this is so progress can be shown in the taskbar
             def setup_tab():
                 self.hwnd = int(parent.wm_frame(), 16)
-                taskbar.ActivateTab(self.hwnd)
+                taskbar.init_with_hwnd(self.hwnd)
 
             self.after(100, setup_tab)
 
@@ -301,8 +298,10 @@ class CustomInstallGUI(ttk.Frame):
         self.file_picker_textboxes = {}
 
         def sd_callback():
+            global last_path
+            initial_dir = last_path if last_path else file_parent
             f = fd.askdirectory(parent=parent, title=_('Select SD root (the directory or drive that contains '
-                                                     '"Nintendo 3DS")'), initialdir=file_parent, mustexist=True)
+                                                     '"Nintendo 3DS")'), initialdir=initial_dir, mustexist=True)
             if f:
                 cifinish_path = join(f, 'cifinish.bin')
                 try:
@@ -324,6 +323,7 @@ class CustomInstallGUI(ttk.Frame):
                         self.enable_buttons()
                     if filename == 'seeddb.bin':
                         load_seeddb(path)
+                last_path = f
 
 
         sd_type_label = ttk.Label(file_pickers, text=_('SD root'))
@@ -350,12 +350,15 @@ class CustomInstallGUI(ttk.Frame):
         # This feels so wrong.
         def create_required_file_picker(type_name, types, default, row, callback=lambda filename: None):
             def internal_callback():
+                global last_path
+                initial_dir = last_path if last_path else file_parent
                 f = fd.askopenfilename(parent=parent, title=_('Select ') + type_name, filetypes=types,
-                                       initialdir=file_parent)
+                                       initialdir=initial_dir)
                 if f:
                     selected.delete('1.0', tk.END)
                     selected.insert(tk.END, f)
                     callback(f)
+                    last_path = f.rsplit("/", 1)[0]
 
             type_label = ttk.Label(file_pickers, text=type_name)
             type_label.grid(row=row, column=0)
@@ -387,8 +390,10 @@ class CustomInstallGUI(ttk.Frame):
         titlelist_buttons.grid(row=1, column=0)
 
         def add_cias_callback():
+            global last_path
+            initial_dir = last_path if last_path else file_parent
             files = fd.askopenfilenames(parent=parent, title=_('Select CIA files'), filetypes=[('CIA files', '*.cia')],
-                                        initialdir=file_parent)
+                                        initialdir=initial_dir)
             results = {}
             for f in files:
                 success, reason = self.add_cia(f)
@@ -398,14 +403,18 @@ class CustomInstallGUI(ttk.Frame):
             if results:
                 title_read_fail_window = TitleReadFailResults(self.parent, failed=results)
                 title_read_fail_window.focus()
+            else:
+                last_path = files[0].rsplit("/", 1)[0]
             self.sort_treeview()
 
         add_cias = ttk.Button(titlelist_buttons, text=_('Add CIAs'), command=add_cias_callback)
         add_cias.grid(row=0, column=0)
 
         def add_cdn_callback():
+            global last_path
+            initial_dir = last_path if last_path else file_parent
             d = fd.askdirectory(parent=parent, title=_('Select folder containing title contents in CDN format'),
-                                initialdir=file_parent)
+                                initialdir=initial_dir)
             if d:
                 if isfile(join(d, 'tmd')):
                     success, reason = self.add_cia(d)
@@ -413,6 +422,7 @@ class CustomInstallGUI(ttk.Frame):
                         self.show_error(_("Couldn't add") + f" {basename(d)}: {reason}")
                     else:
                         self.sort_treeview()
+                        last_path = d
                 else:
                     self.show_error(_('tmd file not found in the CDN directory:\n') + d)
 
@@ -420,7 +430,9 @@ class CustomInstallGUI(ttk.Frame):
         add_cdn.grid(row=0, column=1)
 
         def add_dirs_callback():
-            d = fd.askdirectory(parent=parent, title=_('Select folder containing CIA files'), initialdir=file_parent)
+            global last_path
+            initial_dir = last_path if last_path else file_parent
+            d = fd.askdirectory(parent=parent, title=_('Select folder containing CIA files'), initialdir=initial_dir)
             if d:
                 results = {}
                 for f in scandir(d):
@@ -432,6 +444,8 @@ class CustomInstallGUI(ttk.Frame):
                 if results:
                     title_read_fail_window = TitleReadFailResults(self.parent, failed=results)
                     title_read_fail_window.focus()
+                else:
+                    last_path = d
                 self.sort_treeview()
 
         add_dirs = ttk.Button(titlelist_buttons, text=_('Add folder'), command=add_dirs_callback)
@@ -649,7 +663,7 @@ class CustomInstallGUI(ttk.Frame):
         self.disable_buttons()
 
         if taskbar:
-            taskbar.SetProgressState(self.hwnd, tbl.TBPF_NORMAL)
+            taskbar.set_mode(0x2)
 
         installer = CustomInstall(movable=movable_sed,
                                   sd=sd_root,
@@ -683,11 +697,11 @@ class CustomInstallGUI(ttk.Frame):
         def ci_update_percentage(total_percent, total_read, size):
             self.progressbar.config(value=total_percent + finished_percent)
             if taskbar:
-                taskbar.SetProgressValue(self.hwnd, int(total_percent + finished_percent), max_percentage)
+                taskbar.set_value(int(total_percent + finished_percent), max_percentage)
 
         def ci_on_error(exc):
             if taskbar:
-                taskbar.SetProgressState(self.hwnd, tbl.TBPF_ERROR)
+                taskbar.set_mode(0x4)
             for line in format_exception(*exc):
                 for line2 in line.split('\n')[:-1]:
                     installer.log(line2)
@@ -698,7 +712,7 @@ class CustomInstallGUI(ttk.Frame):
             nonlocal finished_percent
             finished_percent = idx * 100
             if taskbar:
-                taskbar.SetProgressValue(self.hwnd, finished_percent, max_percentage)
+                taskbar.set_value(finished_percent, max_percentage)
 
         installer.event.on_log_msg += ci_on_log_msg
         installer.event.update_percentage += ci_update_percentage
@@ -741,3 +755,5 @@ window.title(f'custom-install {CI_VERSION}')
 frame = CustomInstallGUI(window)
 frame.pack(fill=tk.BOTH, expand=True)
 window.mainloop()
+if taskbar:
+    taskbar.end()

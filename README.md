@@ -85,7 +85,7 @@ pip install cx-freeze -r requirements-win32.txt
 
 Copy `custom-install-finalize.3dsx` to the project root, this will be copied to the build directory and included in the final archive.
 
-Run `make-standalone.bat`. This will run cxfreeze and make a standalone version at `dist\custom-install-standalone.zip`
+Run `make-standalone.bat`. This will run nuitka and make a standalone version at `dist\ci-gui.zip`
 
 ## License/Credits
 [save3ds by wwylele](https://github.com/wwylele/save3ds) is used to interact with the Title Database (details in `bin/README`).

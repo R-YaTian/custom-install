@@ -19,4 +19,12 @@ venv/
 *.pyc
 /build/
 /dist/
-/custom-install-finalize.3dsx
+
+*.d
+*.o
+*.map
+*.elf
+*.lst
+*.smdh
+custom-install-finalize.3dsx
+basetik_bin.h
