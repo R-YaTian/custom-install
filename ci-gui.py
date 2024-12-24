@@ -340,7 +340,7 @@ class CustomInstallGUI(ttk.Frame):
         def auto_input_filename(self, f, filename):
             sd_msed_path = find_first_file([join(f, 'gm9', 'out', filename), join(f, filename)])
             if sd_msed_path:
-                self.log('Found ' + filename + ' on SD card at ' + sd_msed_path)
+                self.log(_('Found ') + filename + _(' on SD card at ') + sd_msed_path)
                 if filename.endswith('bin'):
                     filename = filename.split('.')[0]
                 box = self.file_picker_textboxes[filename]
@@ -503,10 +503,10 @@ class CustomInstallGUI(ttk.Frame):
         self.log(f'custom-install {CI_VERSION} - https://github.com/ihaveamac/custom-install', status=False)
 
         if is_windows and not taskbar:
-            self.log('Note: Could not load taskbar lib.')
-            self.log('Note: Progress will not be shown in the Windows taskbar.')
+            self.log(_('Note: Could not load taskbar lib.'))
+            self.log(_('Note: Progress will not be shown in the Windows taskbar.'))
 
-        self.log('Ready.')
+        self.log(_('Ready.'))
 
         self.require_boot9 = (add_cias, add_cdn, add_dirs, remove_selected, start)
 
@@ -514,7 +514,7 @@ class CustomInstallGUI(ttk.Frame):
         self.check_b9_loaded()
         self.enable_buttons()
         if not self.b9_loaded:
-            self.log('Note: boot9 was not auto-detected. Please choose it before adding any titles.')
+            self.log(_('Note: boot9 was not auto-detected. Please choose it before adding any titles.'))
 
     def sort_treeview(self):
         l = [(self.treeview.set(k, 'titlename'), k) for k in self.treeview.get_children()]
@@ -662,7 +662,7 @@ class CustomInstallGUI(ttk.Frame):
                             'Otherwise, make sure the correct movable.sed is being used.'))
             return
 
-        self.log('Starting install...')
+        self.log(_('Starting install...'))
 
         # use the treeview which has been sorted alphabetically
         readers_final = []

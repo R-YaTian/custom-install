@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-12-23 17:40+0800\n"
+"POT-Creation-Date: 2024-12-24 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,14 @@ msgstr ""
 msgid "SD root"
 msgstr ""
 
+#: E:/SrcPri/custom-install/ci-gui.py:343
+msgid " on SD card at "
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:343
+msgid "Found "
+msgstr ""
+
 #: E:/SrcPri/custom-install/ci-gui.py:353
 msgid "Select "
 msgstr ""
@@ -193,6 +201,22 @@ msgstr ""
 msgid "Waiting..."
 msgstr ""
 
+#: E:/SrcPri/custom-install/ci-gui.py:506
+msgid "Note: Could not load taskbar lib."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:507
+msgid "Note: Progress will not be shown in the Windows taskbar."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:509
+msgid "Ready."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:517
+msgid "Note: boot9 was not auto-detected. Please choose it before adding any titles."
+msgstr ""
+
 #: E:/SrcPri/custom-install/ci-gui.py:543
 msgid "Please choose boot9 first"
 msgstr ""
@@ -258,6 +282,10 @@ msgid ""
 "Before using custom-install, you should use this SD card on the appropriate console.\n"
 "\n"
 "Otherwise, make sure the correct movable.sed is being used."
+msgstr ""
+
+#: E:/SrcPri/custom-install/ci-gui.py:665
+msgid "Starting install..."
 msgstr ""
 
 #: E:/SrcPri/custom-install/ci-gui.py:694

@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.1\n"
-"POT-Creation-Date: 2024-12-23 17:40+0800\n"
-"PO-Revision-Date: 2024-12-23 18:00+0800\n"
+"POT-Creation-Date: 2024-12-24 10:41+0800\n"
+"PO-Revision-Date: 2024-12-24 11:20+0800\n"
 "Last-Translator: R-YaTian\n"
 "Language-Team: None\n"
 "MIME-Version: 1.0\n"
@@ -133,6 +133,14 @@ msgstr ""
 msgid "SD root"
 msgstr "SD 卡根目录"
 
+#: E:/SrcPri/custom-install/ci-gui.py:343
+msgid " on SD card at "
+msgstr " 在SD卡的 "
+
+#: E:/SrcPri/custom-install/ci-gui.py:343
+msgid "Found "
+msgstr "找到文件 "
+
 #: E:/SrcPri/custom-install/ci-gui.py:353
 msgid "Select "
 msgstr "选择 "
@@ -207,6 +215,22 @@ msgstr "开始安装"
 msgid "Waiting..."
 msgstr "等待中..."
 
+#: E:/SrcPri/custom-install/ci-gui.py:506
+msgid "Note: Could not load taskbar lib."
+msgstr "注意: 无法加载 taskbar lib"
+
+#: E:/SrcPri/custom-install/ci-gui.py:507
+msgid "Note: Progress will not be shown in the Windows taskbar."
+msgstr "注意: Windows 任务栏图标上将不会显示进度条"
+
+#: E:/SrcPri/custom-install/ci-gui.py:509
+msgid "Ready."
+msgstr "已就绪"
+
+#: E:/SrcPri/custom-install/ci-gui.py:517
+msgid "Note: boot9 was not auto-detected. Please choose it before adding any titles."
+msgstr "注意: boot9 文件未自动检测到。请选择 boot9 文件后再添加应用。"
+
 #: E:/SrcPri/custom-install/ci-gui.py:543
 msgid "Please choose boot9 first"
 msgstr "请先选择 boot9 文件"
@@ -280,6 +304,10 @@ msgstr ""
 "在使用 custom-install 之前, 需要先在你的设备上使用这张 SD 卡。\n"
 "\n"
 "否则, 请确保使用的是对应设备的 movable.sed 文件。"
+
+#: E:/SrcPri/custom-install/ci-gui.py:665
+msgid "Starting install..."
+msgstr "开始安装..."
 
 #: E:/SrcPri/custom-install/ci-gui.py:694
 msgid "An error occurred during installation."
