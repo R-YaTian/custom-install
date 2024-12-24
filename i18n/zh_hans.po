@@ -135,7 +135,7 @@ msgstr "SD 卡根目录"
 
 #: E:/SrcPri/custom-install/ci-gui.py:343
 msgid " on SD card at "
-msgstr " 在SD卡的 "
+msgstr " 于路径: "
 
 #: E:/SrcPri/custom-install/ci-gui.py:343
 msgid "Found "
