@@ -38,6 +38,7 @@ frozen = getattr(sys, 'frozen', None)
 is_windows = sys.platform == 'win32'
 taskbar = None
 if is_windows:
+    from windnd.dnd import hook_dropfiles
     if frozen:
         # attempt to fix loading tcl/tk when running from a path with non-latin characters
         tkinter_path = dirname(tk.__file__)
@@ -151,6 +152,7 @@ class TitleReadFailResults(tk.Toplevel):
         self.wm_transient(self.parent)
         self.grab_set()
         self.wm_title(_('Failed to add titles'))
+        self.iconbitmap("icon.ico")
 
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
@@ -207,6 +209,7 @@ class InstallResults(tk.Toplevel):
         self.wm_transient(self.parent)
         self.grab_set()
         self.wm_title(_('Install results'))
+        self.iconbitmap("icon.ico")
 
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
@@ -281,6 +284,29 @@ class CustomInstallGUI(ttk.Frame):
         self.rowconfigure(2, weight=1)
         self.columnconfigure(0, weight=1)
 
+        def dragged_files(files):
+            results = {}
+            for f in files:
+                pathname = f.decode('gbk')
+                if (isfile(pathname)):
+                    success, reason = self.add_cia(pathname)
+                    if not success:
+                        results[pathname] = reason
+                else:
+                    for d in scandir(pathname):
+                        if d.name.lower().endswith('.cia'):
+                            success, reason = self.add_cia(d.path)
+                            if not success:
+                                results[d.path] = reason
+
+            if results:
+                title_read_fail_window = TitleReadFailResults(self.parent, failed=results)
+                title_read_fail_window.focus()
+
+            self.sort_treeview()
+
+        if is_windows:
+            hook_dropfiles(parent, func=dragged_files)
         if taskbar:
             # this is so progress can be shown in the taskbar
             def setup_tab():
@@ -439,7 +465,7 @@ class CustomInstallGUI(ttk.Frame):
                     if f.name.lower().endswith('.cia'):
                         success, reason = self.add_cia(f.path)
                         if not success:
-                            results[f] = reason
+                            results[f.path] = reason
 
                 if results:
                     title_read_fail_window = TitleReadFailResults(self.parent, failed=results)
@@ -589,6 +615,7 @@ class CustomInstallGUI(ttk.Frame):
         else:
             console_window = tk.Toplevel()
             console_window.title(_('custom-install Console'))
+            console_window.iconbitmap("icon.ico")
 
             self.console = ConsoleFrame(console_window, self.log_messages)
             self.console.pack(fill=tk.BOTH, expand=True)
@@ -752,6 +779,7 @@ class CustomInstallGUI(ttk.Frame):
 
 window = tk.Tk()
 window.title(f'custom-install {CI_VERSION}')
+window.iconbitmap("icon.ico")
 frame = CustomInstallGUI(window)
 frame.pack(fill=tk.BOTH, expand=True)
 window.mainloop()
